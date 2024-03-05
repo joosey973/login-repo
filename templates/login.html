@@ -1,0 +1,15 @@
+{%extends "pattern.html"%}
+{% block content%}
+    <div class="container mt-5">
+    <h4>Register Form</h4>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {%for field in form if field.name != 'csrf_token' and field.name != 'submit'%}
+            {{field.label}} <br>
+            {{field(class='form-control')}} <br>
+        {%endfor%}
+        {{form.submit(type="submit", class="btn btn-md btn-primary")}} <br>
+        {{message}}
+    </form>
+    </div>
+{%endblock%}
